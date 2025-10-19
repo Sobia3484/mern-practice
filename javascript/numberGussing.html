@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Gussing</title>
+</head>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(78, 66, 66);
+        }
+    </style>
+<body>
+    <!-- <h1>hello</h1> -->
+    <script>
+        let secretNumber = Math.floor(Math.random()*50)+1;
+        while(true){
+        let guess = prompt("Guess Number between 1 to 50");
+        if(guess===null){   //jab user cancel kara ga ya condition tab run ho ge.
+            alert(`Game over! Correct Number was: ${secretNumber}`);
+            break;
+        }      
+        guess = Number(guess);
+        if(guess === secretNumber){
+            alert(`🎉 correct answer`);
+            break;
+        }
+        else{
+            alert(`Your answer is not correct, correct answer is: ${secretNumber}
+            Try again🤔`);
+        }
+        }
+        //replay karna ka lia
+        let again = prompt("Play again? (yes/no)");
+        if (again === null || again.toLowerCase() !== "yes") {
+        alert("Thanks for playing! 👋");
+    
+        // break;  // outer loop se exit — game completely end
+    }
+    
+    </script>
+</body>
+</html>
