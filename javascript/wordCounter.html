@@ -10,7 +10,7 @@
         margin: 0;
         box-sizing: border-box;
     }
-    /* body{
+    body{
          background: linear-gradient(270deg, #ff00cc, #3333ff);
         background-size: 400% 400%;
         animation: moveBg 8s ease infinite;
@@ -19,7 +19,7 @@
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
-} */
+}
  body{
     display: flex;
     justify-content: center;
@@ -27,15 +27,31 @@
     min-height: 100vh;
  }
  .main{
-    border: 2px solid black;
-    height: 300px;
-    width: 400px; 
+    border-radius: 20px;
+    height: 350px;
+    width: 430px; 
     padding: 30px;
+    background-color: #1a1d23;
+    box-shadow: 0px 0px 8px 5px black;
+ }
+ .main h2{
+  color: white;
+  font-size: 30px;
  }
  .main textarea{
     margin-top: 10px;
     resize: none;
     padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: #333333;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    color: white;
+ }
+ #result{
+  color: white;
  }
 .btn {
   padding: 12px 28px;
@@ -43,7 +59,8 @@
   border-radius: 50px;
   background: linear-gradient(135deg, #6a11cb, #2575fc);
   color: white;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 700;
   cursor: pointer;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
@@ -59,7 +76,7 @@
     <div class="main">
     <h2>Word Counter</h2>
 
-    <textarea id="textInput" rows="8" cols="40" placeholder="Type your text here..."></textarea><br><br>
+    <textarea id="textInput" rows="6" cols="30" placeholder="Type your text here..."></textarea><br><br>
     <button onclick="countWords()" class="btn">Count Words</button>
 
     <h3 id="result"></h3>
