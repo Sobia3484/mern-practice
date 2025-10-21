@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ur">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login</title>
+  <style>
+    :root{
+      --bg: #f3f6fb;
+      --card: #ffffff;
+      --accent: #2563eb;
+      --muted: #6b7280;
+      --radius: 12px;
+      --shadow: 0 10px 30px rgba(2,6,23,0.08);
+      --gap: 16px;
+      --maxw: 420px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg, #eef2ff 0%, var(--bg) 100%);
+      padding: 32px;
+      color: #0f172a;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--maxw);
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      gap:var(--gap);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .logo {
+      width:48px;
+      height:48px;
+      border-radius:10px;
+      background: linear-gradient(135deg,#60a5fa,#7c3aed);
+      display:grid;
+      place-items:center;
+      color:white;
+      font-weight:700;
+      font-size:18px;
+      flex-shrink:0;
+    }
+
+    h1{
+      margin:0;
+      font-size:20px;
+    }
+
+    p.lead{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    form {
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:6px;
+    }
+
+    label{
+      font-size:13px;
+      color:#0f172a;
+      display:block;
+      margin-bottom:6px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    input[type="email"],
+    input[type="password"]{
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid #e6eef8;
+      background: #fbfdff;
+      font-size:15px;
+      outline: none;
+      transition: box-shadow .15s, border-color .15s;
+    }
+
+    input:focus{
+      box-shadow: 0 6px 18px rgba(37,99,235,0.12);
+      border-color: rgba(37,99,235,0.6);
+    }
+
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .checkbox{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 14px;
+      border-radius:10px;
+      background:var(--accent);
+      color:white;
+      border:0;
+      font-weight:600;
+      cursor:pointer;
+      font-size:15px;
+      transition: transform .08s ease, box-shadow .08s ease;
+    }
+
+    .btn:active{ transform: translateY(1px); }
+    .btn[disabled]{ opacity:0.6; cursor:not-allowed; }
+
+    .small{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .links{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+    }
+
+    a {
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+      font-size:13px;
+    }
+
+    /* password wrapper (for show/hide) */
+    .password-wrap{
+      position:relative;
+      width:100%;
+    }
+
+    .toggle-pass{
+      position:absolute;
+      right:10px;
+      top:50%;
+      transform:translateY(-50%);
+      background:transparent;
+      border:0;
+      font-size:13px;
+      cursor:pointer;
+      color:var(--muted);
+      padding:6px;
+    }
+
+    /* responsive */
+    @media (max-width:420px){
+      body{ padding:18px; }
+      .card{ padding:18px; border-radius:10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="card" role="main" aria-labelledby="login-title">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">SB</div>
+      <div>
+        <h1 id="login-title">Welcome back</h1>
+        <p class="lead">Apna account me sign in karein</p>
+      </div>
+    </div>
+
+    <form id="loginForm" action="#" method="post" novalidate>
+      <div class="field">
+        <label for="email">Email ya username</label>
+        <input id="email" name="email" type="email" placeholder="example@mail.com" required autocomplete="username" />
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="password-wrap">
+          <input id="password" name="password" type="password" placeholder="Apna password" required autocomplete="current-password" />
+          <button type="button" class="toggle-pass" aria-label="Show password" title="Show password" id="togglePass">Show</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <label class="checkbox">
+          <input type="checkbox" name="remember" />
+          <span>Remember me</span>
+        </label>
+
+        <a href="#" class="small">Forgot?</a>
+      </div>
+
+      <button class="btn" type="submit">Sign in</button>
+
+      <div class="links small" aria-hidden="false">
+        <span class="small">Ya phir <a href="#">Register</a></span>
+        <span class="small">Privacy • Terms</span>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    // OPTIONAL: Show / hide password (remove this script if you want pure HTML/CSS)
+    (function(){
+      const pass = document.getElementById('password');
+      const toggle = document.getElementById('togglePass');
+      toggle.addEventListener('click', () => {
+        const isPwd = pass.type === 'password';
+        pass.type = isPwd ? 'text' : 'password';
+        toggle.textContent = isPwd ? 'Hide' : 'Show';
+        toggle.setAttribute('aria-pressed', isPwd ? 'true' : 'false');
+      });
+
+      // Basic client-side feedback on submit (for demo only)
+      document.getElementById('loginForm').addEventListener('submit', e => {
+        if (!e.target.checkValidity()) {
+          // let browser show validation messages
+          return;
+        }
+        e.preventDefault();
+        // For demo: show simple alert — in real app send to server
+        alert('Form submitted (demo). Replace with real submit logic.');
+      });
+    })();
+  </script>
+
+</body>
+</html>
